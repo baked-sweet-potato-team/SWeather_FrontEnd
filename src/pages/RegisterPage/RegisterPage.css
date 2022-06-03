@@ -1,0 +1,111 @@
+@import "../../reset.css";
+@import url('https://webfontworld.github.io/naver/NanumSquareRound.css');
+
+body {
+    font-family: 'NanumSquareRound';
+}
+
+/* 전체 높이 1000px 설정 */
+.r-container {
+    height: 1000px;
+}
+
+.r-main-box {
+    background-color: #222F7D;
+    height: 100%;
+}
+
+/* 헤더 */
+.header {
+    height: 60px;
+}
+
+/* 메인 */
+.r-main {
+    /* 헤더(60px) 제외  */
+    height: 940px;
+}
+
+.signup-box {
+    width: 90%;
+    height: 95%;
+    margin: 0 auto;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+/* signup 글씨 (120px) */
+.signup-text-box {
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-text {
+    font-size: 2.5em;
+    font-weight: bolder;
+    color: #222F7D;
+}
+
+/* 폼 시작 */
+.r-input-group {
+    width: 100%;
+    height: 810px;
+}
+
+.r-input-group-box {
+    width: 80%;
+    height: 700px;
+    margin: 0 auto;
+    /* 박스 안 아이템 설정 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.r-text {
+    line-height: 23px;
+    font-size: 15px;
+    margin-left: 10px;
+}
+
+.r-input-box {
+    width: 100%;
+    height: 8.5%;
+    margin: 7px;
+}
+
+.r-select-box {
+    width: 100%;
+    height: 8.5%;
+    margin: 7px;
+}
+
+.r-inputs {
+    width: 90%;
+    height: 35px;
+    border-radius: 30px;
+    border-color: #222F7D;
+}
+
+.r-select {
+    width: 90%;
+    height: 41px;
+    border-radius: 30px;
+    border: 2px solid #222F7D;
+}
+
+
+/* 너비가 450 이상일 때 */
+@media (min-width: 450px) {
+    .r-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .r-main-box {
+      width: 450px;
+      height: 100%;
+    }  
+  } 

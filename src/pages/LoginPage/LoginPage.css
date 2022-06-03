@@ -1,0 +1,148 @@
+@import "../../reset.css";
+@import url('https://webfontworld.github.io/naver/NanumSquareRound.css');
+
+body {
+    font-family: 'NanumSquareRound';
+}
+
+.container {
+    height: 100vh;
+    height: calc(var(—vh, 1vh) * 60);
+}
+
+/* 모든 내용이 담긴 박스 */
+.main-box {
+    background-color: #222F7D;
+    height: 100%;
+}
+
+/* 헤더, 메인, 바닥 퍼센트에 맞게 높이 설정 */
+
+/* 헤더 : 60px로 고정 */
+.header {
+    height: 60px;
+}
+
+.main {
+    height: 70%;
+}
+
+.login-box {
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 10px;
+}
+
+/* 로그인 상단 */
+.login-text-box {
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-text {
+    font-size: 2.5em;
+    font-weight: bolder;
+    color: #222F7D;
+}
+
+.input-group {
+    width: 100%;
+    height: 50%;
+}
+
+.login-btn-box {
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 로그인 중간 인풋 그룹 */
+.input-group-box {
+    /* 박스 자체 설정 */
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    /* 박스 안 아이템 설정 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.text {
+    line-height: 23px;
+    font-size: 15px;
+    margin-left: 10px;
+}
+
+.input-box {
+    width: 100%;
+    height: 20%;
+    margin: 7px;
+}
+
+.inputs {
+    width: 90%;
+    height: 35px;
+    border-radius: 30px;
+    border-color: #222F7D;
+}
+
+/* 로그인 버튼 */
+.login-btn {
+    width: 80%;
+    height: 45px;
+    font-size: 20px;
+    background-color: #DDE3F1;
+    border-color: #DDE3F1;
+    color: white;
+    border-radius: 8px;
+}
+
+.bottom {
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.signup-btn-box {
+    width: 100%;
+    text-align: center;
+}
+
+.signup-btn {
+    width: 80%;
+    height: 45px;
+    font-size: 20px;
+    background-color: #222F7D;
+    border-color: #ffffff;
+    color: #ffffff;
+    border-radius: 8px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.text_01 {
+    font-size: 15px;
+    color:#ffffff;
+}
+
+/* 반응형 */
+
+/* 너비가 450 이상일 때 */
+@media (min-width: 450px) {
+    .container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .main-box {
+      width: 450px;
+    }  
+  } 

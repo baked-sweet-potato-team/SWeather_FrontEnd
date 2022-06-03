@@ -1,0 +1,29 @@
+.header {
+    background-color: #222F7D;
+    font-family: 'NanumSquareRoundBold';
+}
+
+.logoandtextbox{
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-box {
+    width: 40px;
+    height: 40px;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+}
+
+.logo-text {
+    width: 130px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 400;
+    color: #DDE3F1;
+}

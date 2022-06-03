@@ -1,0 +1,19 @@
+.notAuthBox {
+    width: 80%;
+    margin: 10%;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.notAuthText {
+    color: #222F7D;
+    font-size: 17px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 80px;
+    margin: 0 10%;
+}
+
+.notAuthBox .login-btn {
+    margin-bottom: 20px;
+}
