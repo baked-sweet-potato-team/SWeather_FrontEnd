@@ -2,5 +2,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 10px;
+    padding-bottom: 20px;
 }
 
+#t {
+    font-size: 0.8em;
+    margin-left: 40px;
+    color: #222F7D;
+}
+
+#i {
+    height: 30px;
+}
+
+#b {
+    height: 35px;
+    background-color: #DDE3F1;
+}

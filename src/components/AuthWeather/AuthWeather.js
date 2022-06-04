@@ -3,6 +3,7 @@ import axios from 'axios';
 import {useDispatch} from 'react-redux'
 import {weatherRecommand} from '../../_actions/user_action';
 import './AuthWeather.css';
+//import i from '../../assets/views/여자코디/봄/여자봄베이직3.jpg';
 
 // 지역 선택 가능하게
 function AuthWeather() {
@@ -18,6 +19,7 @@ function AuthWeather() {
 
     const REST_API_KEY = "0d97440332dc80cc979af39b2a245de4";
     const WEATHER_API_KEY = "031a9986e3d7a4894431870dda42f212";
+    let img_final_route = "";
 
     const onClickHandler = () => {
         // address를 가지고 좌표로 변환 
@@ -42,15 +44,17 @@ function AuthWeather() {
                 console.log(temp, weather);
             }))
 
+            let body = {
+                weather: temp
+            }
 
-            const imageResult = tempResult.then(
-                dispatch(weatherRecommand(temp))
-                .then(response => {
-                    if(response.payload.image) {
-                        // 추천 성공
-                        setImageRoute(response.payload.image);
-                        setFlag(true);
-                    }
+            tempResult.then(
+                dispatch(weatherRecommand(body))
+                .then(res => {
+                    console.log(res.payload.image);
+                    img_final_route = "../../assets/"+res.payload.image;
+                    setImageRoute(img_final_route);
+                    setFlag(true);
                 })
             )
 
@@ -63,14 +67,11 @@ function AuthWeather() {
 
     return (
         <div>
+            <span id="t">지역을 입력해 주세요 ! </span>
             <div className='main-weather-container'>
-                <input type="text" value={address} onChange={onAddressHandler}></input>
-                <button onClick={onClickHandler}>지역 검색하기</button>
-                
+                <input id="i" type="text" value={address} onChange={onAddressHandler} placeholder=" ex) 00시 00동"></input>
+                <button id="b" onClick={onClickHandler}>search</button>
             </div>
-            { 
-                flag ? <div>{imageRoute}</div> : null
-            }
         </div>
     );
 };
