@@ -11,9 +11,9 @@ const NoAuthBox = () => {
     }
 
     return (
-        <div className='notAuthBox'>
-                <p className='notAuthText'>로그인 후 이용해주세요</p>
-                <button className='login-btn' onClick={onClickHandler}>login</button>
+        <div className='noAuthBox'>
+                <p className='noAuthText'>로그인 후 이용해주세요</p>
+                <button className='login-btn' onClick={onClickHandler}>로그인 하러가기</button>
         </div> 
     );
 };

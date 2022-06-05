@@ -1,9 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import { useDispatch } from 'react-redux';
-import { auth, tpoRecommand } from '../../_actions/user_action';
-import AuthTPO from '../AuthTPO/AuthTPO';
-import NoAuthBox from '../NoAuthBox/NoAuthBox';
-import './TPO.css';
+import { auth } from '../../_actions/user_action';
+import AuthTPO from '../../components/AuthTPO/AuthTPO';
+import NoAuthBox from '../../components/NoAuthBox/NoAuthBox';
 
 function TPO() {
     
@@ -23,9 +22,7 @@ function TPO() {
 
     return (
         <div>
-            { isAuth ? 
-            <AuthTPO/> 
-            : <div className='box'><NoAuthBox/></div> }
+            {isAuth ? <AuthTPO/>: <NoAuthBox/>}
         </div>
     );
 };
