@@ -6,6 +6,47 @@
     padding-bottom: 20px;
 }
 
+#wrc-container {
+    height: 400px;
+}
+
+#text-container {
+    background-color: #ffffff;
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 10px 0;
+}
+
+#wrc-container > span {
+    color: #222F7D;
+    font-size: 1.2em;
+    font-weight: bolder;
+    display: block;
+    text-align: center;
+    margin: 20px;
+}
+
+#img-box {
+    width: 50%;
+    height: 200px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin: 5% auto;
+}
+
+.weather-text {
+    margin: 10px 20px;
+    color: #222F7D;
+    font-size: 0.8em;
+}
+
+#addr-text {
+    font-size: 1.3em;
+    color: #222F7D;
+    margin: 10px 20px;
+}
+
 #t {
     font-size: 0.8em;
     margin-left: 40px;

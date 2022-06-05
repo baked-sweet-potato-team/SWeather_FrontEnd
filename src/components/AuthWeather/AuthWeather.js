@@ -8,7 +8,6 @@ import './AuthWeather.css';
 function AuthWeather() {
 
     const dispatch = useDispatch();
-    const navigate = useNavigate();
     const [latitude, setLatitude] = useState("");
     const [longitude, setLongitude] = useState("");
     const [address, setAddress] = useState("");
@@ -16,8 +15,16 @@ function AuthWeather() {
     const [weather, setWeather] = useState("");
     const [isSuccess, setIsSuccess] = useState(false);
 
+    // api key
     const REST_API_KEY = "0d97440332dc80cc979af39b2a245de4";
     const WEATHER_API_KEY = "031a9986e3d7a4894431870dda42f212";
+
+    // 오늘 날짜 구하기
+    let now = new Date();	// 현재 날짜 및 시간
+    let month = now.getMonth() + 1;
+    let date = now.getDate();
+    const week = ['일', '월', '화', '수', '목', '금', '토'];
+    let dayOfWeek = week[now.getDay()];
 
     const onClickHandler = () => {
         // address를 가지고 좌표로 변환 
@@ -25,7 +32,7 @@ function AuthWeather() {
             alert("검색어를 입력해주세요 !");
         } else {
             // 검색어 -> 좌표 변환
-            const coordiResult = axios.get(`https://dapi.kakao.com/v2/local/search/address.json?&query=${address}`,{
+            axios.get(`https://dapi.kakao.com/v2/local/search/address.json?&query=${address}`,{
                 headers: {Authorization: `KakaoAK ${REST_API_KEY}`}})
                 .then(res => res.data)
                 .then(res => {
@@ -36,25 +43,15 @@ function AuthWeather() {
             
             // 좌표 -> 날씨 받기
             axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${WEATHER_API_KEY}&units=metric`)
-            .then(res => res.data)
-            .then(res => {
-                setTemp(String(parseInt(res.main.temp)));
-                setWeather(res.weather[0]["main"]);
-                console.log(temp, weather);
-                setIsSuccess(true);
-            })
+                .then(res => res.data)
+                .then(res => {
+                    setTemp(String(parseInt(res.main.temp)));
+                    setWeather(res.weather[0]["main"]);
+                    setIsSuccess(true); // 날씨 받기 성공
+                    console.log(temp, weather);
+                })
             
-            // if (temp) {
-            //     navigate("/weather", { 
-            //         state: {
-            //             addr: address, 
-            //             temp: temp, 
-            //             weather: weather
-            //         },
-            //      });
-            // }
-
-            // 
+            // 날씨 -> 추천 코디 받기
         }
     }
 
@@ -65,9 +62,15 @@ function AuthWeather() {
     return (
         <div>
             { isSuccess ? 
-                <div>
-                    <div className='weather-text'>오늘 {address} 날씨는</div>
-                    <div className='weather-text'>{temp}도, {weather} 입니다</div>
+                <div id='wrc-container'>
+                    <div id='text-container'>
+                        <div className='weather-text'>{month}월 {date}일 ({dayOfWeek})</div>
+                        <div id='addr-text'>{address} 의 날씨는</div>
+                        <div className='weather-text'>{temp}도, {weather} 입니다</div>
+                    </div>
+                    <span>오늘의 recommanded cody</span>
+                    {/* 추천받는 이미지 자리 */}
+                    <div id='img-box'></div>
                 </div>
                 : <div>
                     <span id="t">지역을 입력해 주세요 ! </span>
