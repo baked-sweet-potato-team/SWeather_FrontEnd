@@ -1,6 +1,4 @@
 // main
-
-import logo from './logo.svg';
 import './App.css';
 
 // import react-router-dom
@@ -10,7 +8,7 @@ import LoginPage from './pages/LoginPage/LoginPage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import MainPage from './pages/MainPage/MainPage';
 import MyPage from './pages/MyPage/MyPage';
-import Auth from './hoc/auth'
+import Auth from './hoc/auth';
 
 function App() {
 

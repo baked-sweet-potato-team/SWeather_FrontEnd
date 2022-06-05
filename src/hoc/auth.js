@@ -18,7 +18,6 @@ export default function (SpecificComponent, option, adminRoute = null) {
             // redux 사용
             dispatch(auth())
             .then(response => {
-                console.log(response)
                 if(!response.payload.isAuth) {
                     // 로그인 하지 않은 상태
                     // 에서 로그인 한 사람만 들어갈 수 있는 페이지는 

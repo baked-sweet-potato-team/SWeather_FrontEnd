@@ -12,7 +12,7 @@ import './TPO.css';
 function TPO() {
     
     const dispatch = useDispatch();
-    const [isAuth, setIsAuth] = useState("");
+    const [isAuth, setIsAuth] = useState();
 
     useEffect(() => {
         dispatch(auth())

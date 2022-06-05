@@ -12,21 +12,14 @@ import './Weather.css';
 function Weather() {
     
     const dispatch = useDispatch();
-    const [isAuth, setIsAuth] = useState("");
+    const [isAuth, setIsAuth] = useState();
 
     useEffect(() => {
         dispatch(auth())
         .then(response => {
-            console.log("w-auth",response);
             if(response.payload.isAuth) {
-                dispatch(weatherRecommand())
-                .then(res => {
-                    // 회원이 추천결과를 요청한 경우
-                    console.log("in-w-auth",res);
-                    setIsAuth(true);
-                })
+                setIsAuth(true);
             } else {
-                // 회원이 아닌 경우
                 setIsAuth(false);
             }
         })
