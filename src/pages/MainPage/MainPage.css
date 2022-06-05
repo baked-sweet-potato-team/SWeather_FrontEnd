@@ -1,7 +1,12 @@
-.main-container {
-    background-color: #222F7D;
+body {
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    background-color: #222F7D;
+}
+
+.main-container {
+    width: 100%;
+    height: calc(100% - 120px);
     display: flex;
     justify-content: center;
 }
@@ -9,7 +14,7 @@
 .main-body {
     background-color: #ffffff;
     width: 90%;
-    height: 90%;
+    height: 100vh;
     border-radius: 15px;
 }
 

@@ -61,6 +61,7 @@ function MainPage() {
                         </div>  
                     </div>
                 </section>
+                <div style={{width:"100%", height:"70px", backgroundColor:"#222F7D"}}></div>
                 <Bottombar/>
             </div>
         </div>
