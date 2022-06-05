@@ -1,7 +1,7 @@
 .n-box {
     background-color: #f2f6ff;
     width: 85%;
-    height: 70vh;
+    height: 70%;
     border-radius: 20px;
     position: relative;
     top: -5%;
@@ -32,7 +32,7 @@
     justify-content: center;
     align-items: center;
     width: 60%;
-    height: 25%;
+    height: 15%;
 }
 
 .n-btn {
