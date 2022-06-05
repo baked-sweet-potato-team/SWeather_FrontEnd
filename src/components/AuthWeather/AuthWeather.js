@@ -1,11 +1,12 @@
 import React, { useEffect, useState} from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
+import {weatherRecommand} from '../../_actions/user_action';
 import './AuthWeather.css';
+import ImageBox from '../../components/ImageBox/ImageBox';
 
 // 지역 선택 가능하게
-function AuthWeather() {
+const AuthWeather = () => {
 
     const dispatch = useDispatch();
     const [latitude, setLatitude] = useState("");
@@ -14,6 +15,7 @@ function AuthWeather() {
     const [temp, setTemp] = useState("");
     const [weather, setWeather] = useState("");
     const [isSuccess, setIsSuccess] = useState(false);
+    const [imageRoute, setImageRoute] = useState("");
 
     // api key
     const REST_API_KEY = "0d97440332dc80cc979af39b2a245de4";
@@ -31,7 +33,8 @@ function AuthWeather() {
         if(address === ""){
             alert("검색어를 입력해주세요 !");
         } else {
-            // 검색어 -> 좌표 변환
+
+            // 1. 검색어 -> 좌표 변환
             axios.get(`https://dapi.kakao.com/v2/local/search/address.json?&query=${address}`,{
                 headers: {Authorization: `KakaoAK ${REST_API_KEY}`}})
                 .then(res => res.data)
@@ -41,7 +44,7 @@ function AuthWeather() {
                     console.log(latitude, longitude);
                 })
             
-            // 좌표 -> 날씨 받기
+            // 2. 좌표 -> 날씨 받기
             axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${WEATHER_API_KEY}&units=metric`)
                 .then(res => res.data)
                 .then(res => {
@@ -51,7 +54,15 @@ function AuthWeather() {
                     console.log(temp, weather);
                 })
             
-            // 날씨 -> 추천 코디 받기
+            // 3. 날씨 -> 추천 코디 받기
+            let body = { weather: temp};
+            dispatch(weatherRecommand(body))
+            .then(res => res.payload.image)
+            .then(res => {
+                console.log(res);
+                setImageRoute(res);
+            })
+            
         }
     }
 
@@ -70,7 +81,7 @@ function AuthWeather() {
                     </div>
                     <span>오늘의 recommanded cody</span>
                     {/* 추천받는 이미지 자리 */}
-                    <div id='img-box'></div>
+                    <ImageBox imageRoute={imageRoute}/>
                 </div>
                 : <div>
                     <span id="t">지역을 입력해 주세요 ! </span>

@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { useDispatch } from 'react-redux';
 import { tpoRecommand } from '../../_actions/user_action'
+import ImageBox from '../ImageBox/ImageBox';
 import './AuthTPO.css';
 
 const AuthTPO = () => {
@@ -48,7 +49,7 @@ const AuthTPO = () => {
         <div>
             {
                 isSuccess ? 
-                <div>&nbsp;&nbsp;&nbsp;{imageRoute}</div>
+                <ImageBox imageRoute={imageRoute}/>
                 :
                 <div>
                     <span>오늘 누구와 무엇을 하나요 ? </span>
