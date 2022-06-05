@@ -9,12 +9,13 @@ const AuthTPO = () => {
     const [people, setPeople] = useState("");
     const [isSuccess, setIsSuccess] = useState(false);
     const [imageRoute, setImageRoute] = useState("");
-    const people_arr = ['연인', '가족', '친구', '직장', '처음보는 사람'];
+    const people_arr = ['연인', '가족', '친구', '직장', '처음 보는 사람'];
     const occasion_arr = ['데이트', '경사', '여행', '운동', '직장', '데일리'];
     
     const dispatch = useDispatch();
     
-    const onTPObtnHandler = () => {
+    const onTPObtnHandler = (e) => {
+        e.preventDefault();
 
         let body = {
             occasion: occasion,
@@ -24,14 +25,15 @@ const AuthTPO = () => {
         if(!occasion || !people ){
             alert("TPO를 선택해 주세요 !");
         }
-
-        dispatch(tpoRecommand(body))
-        .then(res => res.payload.image)
-        .then(res => {
-            console.log(res);
-            setImageRoute(res);
-        });
-        setIsSuccess(true);
+        else {
+            dispatch(tpoRecommand(body))
+            .then(res => res.payload.image)
+            .then(res => {
+                console.log(res);
+                setImageRoute(res);
+            });
+            setIsSuccess(true);
+        }
     }
 
     const onPeopleHandler = (e) => {
