@@ -55,9 +55,13 @@
 
 #i {
     height: 30px;
+    border-radius: 5px;
+    border-color: #A8A8A8;
 }
 
 #b {
     height: 35px;
     background-color: #DDE3F1;
+    border-radius: 5px;
+    border-color: #A8A8A8;
 }

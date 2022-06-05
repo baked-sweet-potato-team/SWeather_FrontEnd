@@ -5,9 +5,9 @@ import './MainPage.css'
 import Header from '../../components/Header/Header';
 import Bottombar from '../../components/Bottombar/Bottombar';
 import Accordion from '../../components/Accordion/Accordion';
-import Weather from '../../components/Weather/Weather';
-import TPO from '../../components/TPO/TPO';
-import Personal from '../../components/Personal/Personal';
+import Weather from '../Weather/Weather';
+import TPO from '../TPO/TPO';
+import Personal from '../Personal/Personal';
 
 
 // 모바일 전체화면 조정
@@ -44,24 +44,26 @@ function MainPage() {
                 <Header/>
                 <section>
                     <div className='main-container'>
-                        <div className='main-body'>
-                            {/* 제일 위 title 부분 */}
-                            <div className='title-text-box'>
-                                <p className='main-text'>Today's</p>
-                                <p className='main-text'>Style</p>
-                            </div>
-                            {/* 아래 select box 부분 */}
-                            <div className='accordion-box'>
-                            {
-                                accordionData.map(({ title, content }) => (
-                                    <Accordion title={title} content={content} />)
-                                )
-                            }
-                            </div>
-                        </div>  
+                        <div id='temp-box'>
+                            <div className='main-body'>
+                                {/* 제일 위 title 부분 */}
+                                <div className='title-text-box'>
+                                    <p className='main-text'>Today's</p>
+                                    <p className='main-text'>Style</p>
+                                </div>
+                                {/* 아래 select box 부분 */}
+                                <div className='accordion-box'>
+                                {
+                                    accordionData.map(({ title, content }) => (
+                                        <Accordion title={title} content={content} />)
+                                    )
+                                }
+                                </div>
+                            </div>  
+                        </div>
                     </div>
                 </section>
-                <div style={{width:"100%", height:"70px", backgroundColor:"#222F7D"}}></div>
+                <div style={{width:"100%", height: "60px", backgroundColor:"#222F7D"}}></div>
                 <Bottombar/>
             </div>
         </div>

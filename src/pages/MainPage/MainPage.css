@@ -11,10 +11,17 @@ body {
     justify-content: center;
 }
 
-.main-body {
+#temp-box {
     background-color: #ffffff;
     width: 90%;
-    height: 100vh;
+    height: calc(100vh - 120px);
+    border-radius: 15px;
+}
+
+.main-body {
+    background-color: #ffffff;
+    width: 100%;
+    height: auto;
     border-radius: 15px;
 }
 
@@ -34,6 +41,7 @@ body {
 
 .accordion-box {
     height: auto;
+    padding-bottom: 65px;
 }
 
 /* 반응형 */

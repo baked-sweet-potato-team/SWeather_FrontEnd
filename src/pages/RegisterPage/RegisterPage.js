@@ -67,7 +67,7 @@ function RegisterPage() {
         // 여기서 response는 action을 통해 받은 type과 payload
         dispatch(signupUser(body))
         .then(response => {
-            console.log("회원가입",response)
+            console.log("회원가입",response);
             if(response.payload.success) {
                 // 회원가입 성공 시 로그인 화면 전환 
                 window.location.href = "/login"
