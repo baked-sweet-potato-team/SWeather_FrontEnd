@@ -68,16 +68,16 @@ const AuthMyPage = () => {
                         <div className='info-text'>Style <br/><br/> {Style}</div>
                         <div className='info-text'>Gender <br/><br/> {Gender}</div>
                     </div>
-                    <div>퍼스널 컬러 진단표</div>
+                    <div style={{margin: "10px"}}>퍼스널 컬러 진단표</div>
                     <div className='personal-info-box'>
                         <div className='personal-info-text'>{Color}</div>
-                        <button>진단 결과 보러가기</button>
+                        <button id='btn-personal'>진단 결과 보러가기</button>
                     </div>
                     <div className='btn-box'>
-                        <button id='btn-my' onClick={onClickLogoutHandler}>로그아웃</button>
+                        <button className='btn-my' onClick={onClickLogoutHandler}>로그아웃</button>
                     </div>
                     <div className='btn-box'>
-                        <button id='btn-my' onClick={onClickMainHandler}>메인화면</button>
+                        <button className='btn-my' onClick={onClickMainHandler}>메인화면</button>
                     </div>
                 </div>
             </div>
