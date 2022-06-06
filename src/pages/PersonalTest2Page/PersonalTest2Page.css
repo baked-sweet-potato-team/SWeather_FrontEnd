@@ -1,0 +1,49 @@
+#personal-test-header {
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    display: flex;
+}
+
+#personal-test-header > div {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+#personal-test-header > div > img {
+    width: 17px;
+}
+
+#personal-test-header > span {
+    width: 100%;
+    line-height: 60px;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #fff;
+    margin-left: -60px;
+}
+
+#personal-main-box {
+    width: 100%;
+    height: calc(100vh-60px);
+}
+
+#camera-btn {
+    float: right;
+}
+
+#current-color {
+    width: 100%;
+    height: 40vh;
+}
+
+#s1, #s2 {
+    background-color:aliceblue;
+    width: 100%;
+    height: 18vh;
+}
+
