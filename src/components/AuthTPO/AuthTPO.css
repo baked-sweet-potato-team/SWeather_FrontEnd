@@ -10,7 +10,7 @@ div > span {
     font-size: 0.7em;
 }
 
-select {
+.t-select {
     height: 36px;
     border-radius: 8px;
     border-color: #A8A8A8;

@@ -54,10 +54,10 @@ const AuthTPO = () => {
                 <div>
                     <span>오늘 누구와 무엇을 하나요 ? </span>
                     <div id='tpo-select-box'>
-                        <select onChange={onPeopleHandler}>
+                        <select className='t-select' onChange={onPeopleHandler}>
                             { people_arr.map(e => <option>{e}</option>) }
                         </select> &nbsp;&nbsp;와<br/>
-                        <select onChange={onOccasionHandler}>
+                        <select className='t-select' onChange={onOccasionHandler}>
                             { occasion_arr.map(e => <option>{e}</option>) }
                         </select>&nbsp;&nbsp;를 갈(할) 예정입니다
                         <button id='tb' onClick={onTPObtnHandler}>코디 추천받으러 가기</button>

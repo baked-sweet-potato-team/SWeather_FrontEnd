@@ -9,6 +9,8 @@ import RegisterPage from './pages/RegisterPage/RegisterPage';
 import MainPage from './pages/MainPage/MainPage';
 import MyPage from './pages/MyPage/MyPage';
 import PersonalColorPage from './pages/PersonalColorPage/PersonalColorPage';
+import PersonalTest1Page from './pages/PersonalTest1Page/PersonalTest1Page';
+import PersonalTest2Page from './pages/PersonalTest2Page/PersonalTest2Page';
 import Auth from './hoc/auth';
 
 function App() {
@@ -29,6 +31,8 @@ function App() {
         <Route path="/register" element={<AuthRegisterPage/>} />
         <Route path="/my" element={<AuthMyPage/>} />
         <Route path="/personal" element={<AuthPersonalColorPage/>} />
+        <Route path="/personalTest1" element={<PersonalTest1Page/>} />
+        <Route path="/personalTest2" element={<PersonalTest2Page/>} />
       </Routes>
     </Router>
   );
