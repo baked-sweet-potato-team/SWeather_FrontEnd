@@ -9,7 +9,6 @@ const PersonalResultPage = () => {
 
     const dispatch = useDispatch();
     const location = useLocation();
-    const { detail } = location.state;
     const [ color , setColor] = useState();
     const [ explainImg, setExplainImg ] = useState();
 
@@ -17,14 +16,17 @@ const PersonalResultPage = () => {
     const onClick = () => {
         navigate(-1);
     }
-    
-    let body = {
-       color: color,
-    };
 
     useEffect(() => {
+        const { detail } = location.state;
+        console.log(detail);
+        
+        let body = {
+            color: color,
+         };
 
         let result;
+
         if (detail === "spring_light") result = "봄 웜 라이트";
         else if (detail === "spring_bright") result = "봄 웜 브라이트";
         else if (detail === "summer_mute") result = "여름 쿨 뮤트";
@@ -38,6 +40,7 @@ const PersonalResultPage = () => {
         dispatch(personalResult(body))
         .then(res => res.payload.image)
         .then(res => {
+            console.log(res);
             setExplainImg(res);
         });
 

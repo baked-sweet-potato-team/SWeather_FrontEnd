@@ -55,7 +55,9 @@ const PersonalTest2Page = () => {
 
 
     useEffect(() => {
+
       const { season } = location.state; // season 받아옴
+      console.log(season);
       if (season === "spring") {
         setColorOne([...spring_light, "spring_light"]);
         setColorTwo([...spring_bright, "spring_bright"]);
@@ -71,7 +73,7 @@ const PersonalTest2Page = () => {
       }
     }, [])
 
-    console.log(colorOne, colorTwo);
+    //console.log(colorOne, colorTwo);
 
     // 세부 타입 처리
     const spring_detail = {
@@ -94,6 +96,7 @@ const PersonalTest2Page = () => {
     let cnt = 0;
     const onDetailHandler = (e) => {
         cnt++;
+        console.log(e.currentTarget.value);
         currentColor.current.style = `background: ${e.currentTarget.style.backgroundColor}`;
         if(e.currentTarget.value === "spring_light"){
           spring_detail.spring_light++;
@@ -122,7 +125,6 @@ const PersonalTest2Page = () => {
 
 
     const onClickNextTest = () => {
-      console.log(detailType);
        navigate("/personalResult", {
         state: {
           detail: detailType,
@@ -133,7 +135,7 @@ const PersonalTest2Page = () => {
     const makeBtn = (arr) => {
       const result = [];
       for (let i=0; i<arr.length-1; i++ ) {
-        result.push(<button value={arr[6]} 
+        result.push(<button value={`${arr[5]}`} 
         style={{
           backgroundColor: `${arr[i]}`,
           display: 'inline-block',

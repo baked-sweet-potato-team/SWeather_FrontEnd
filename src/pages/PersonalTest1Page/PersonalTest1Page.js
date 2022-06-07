@@ -67,13 +67,13 @@ const PersonalTest1Page = () => {
         }
         if(cnt === 6) {
           // 6개 선택 후 로직 처리
+          //console.log(calcCount(season_cnt));
           setSeasontype(calcCount(season_cnt));
           setIsSelected(true);
         }
     }
 
     const onClickNextTest = () => {
-      console.log(seasonType);
        navigate("/personalTest2", {
         state: {
           season: seasonType,

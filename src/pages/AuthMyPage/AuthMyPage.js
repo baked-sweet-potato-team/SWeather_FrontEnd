@@ -3,7 +3,7 @@ import './AuthMyPage.css'
 import {useNavigate, Link} from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import { useDispatch } from 'react-redux';
-import { logoutUser, searchUser } from '../../_actions/user_action';
+import { logoutUser, searchUser, personalResult } from '../../_actions/user_action';
 
 const AuthMyPage = () => {
     const dispatch = useDispatch();
@@ -26,6 +26,16 @@ const AuthMyPage = () => {
             }
         )
     },[])
+
+    let body = {
+        color: Color
+    }
+
+    // 진단표 보러가기 통신
+    // const onClickPersonal = () => {
+        
+    // }
+    
 
     //로그아웃 통신
     const onClickLogoutHandler = () => {
