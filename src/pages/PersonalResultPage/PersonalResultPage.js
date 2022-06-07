@@ -17,15 +17,15 @@ const PersonalResultPage = () => {
         navigate(-1);
     }
 
+    const onClickMain = () => {
+        navigate("/");
+    } 
+
     useEffect(() => {
         const { detail } = location.state;
         console.log(detail);
-        
-        let body = {
-            color: color,
-         };
 
-        let result;
+        let result = "";
 
         if (detail === "spring_light") result = "봄 웜 라이트";
         else if (detail === "spring_bright") result = "봄 웜 브라이트";
@@ -37,14 +37,20 @@ const PersonalResultPage = () => {
         else if (detail === "winter_deep") result = "겨울 쿨 딥";
         setColor(result);
 
+    }, []);
+
+    useEffect(() => {
+        let body = {
+            color: color,
+         };
         dispatch(personalResult(body))
         .then(res => res.payload.image)
         .then(res => {
             console.log(res);
             setExplainImg(res);
         });
+    }, [color]);
 
-    }, []);
 
     return (
         <div>
@@ -54,11 +60,11 @@ const PersonalResultPage = () => {
             </header>
             <section id='personal-text'>
                 <div id='personal-result-t' className='personal-t'>{color}</div>
-            </section>
+            </section> 
             <section id='personal-explain'>
                 <div className='personal-t'>{color}의 특징</div>
                 <img src={explainImg} style={{width:"100%", marginBottom:"10px"}} alt='이미지 없음'/>
-                <button>메인으로 돌아가기</button>
+                <button onClick={onClickMain}>메인으로 돌아가기</button>
             </section>
         </div>
     );
