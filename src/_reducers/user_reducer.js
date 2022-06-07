@@ -6,6 +6,7 @@ import {
     WEATHER_MAIN,
     TPO_MAIN,
     PERSONAL_MAIN,
+    DIAGNOSTIC_MAIN,
     MY_USER
 }  from '../_actions/types'
 
@@ -31,6 +32,8 @@ export default function (state ={}, action) {
         case TPO_MAIN:
             return {...state, recommandData: action.payload}
         case PERSONAL_MAIN:
+            return {...state, recommandData: action.payload}
+        case DIAGNOSTIC_MAIN:
             return {...state, recommandData: action.payload}
         case MY_USER:
             return {...state,uuserInfo: action.payload}

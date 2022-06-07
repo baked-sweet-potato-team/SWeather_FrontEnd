@@ -8,4 +8,5 @@ export const AUTH_USER = "auth_user";
 export const WEATHER_MAIN = "weather_main";
 export const TPO_MAIN = "tpo_main";
 export const PERSONAL_MAIN = "personal_main";
+export const DIAGNOSTIC_MAIN = "diagnostic_main";
 export const MY_USER = "my_user";

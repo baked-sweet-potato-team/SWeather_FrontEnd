@@ -11,6 +11,7 @@ import MyPage from './pages/MyPage/MyPage';
 import PersonalColorPage from './pages/PersonalColorPage/PersonalColorPage';
 import PersonalTest1Page from './pages/PersonalTest1Page/PersonalTest1Page';
 import PersonalTest2Page from './pages/PersonalTest2Page/PersonalTest2Page';
+import PersonalResultPage from './pages/PersonalResultPage/PersonalResultPage';
 import Auth from './hoc/auth';
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
         <Route path="/personal" element={<AuthPersonalColorPage/>} />
         <Route path="/personalTest1" element={<PersonalTest1Page/>} />
         <Route path="/personalTest2" element={<PersonalTest2Page/>} />
+        <Route path="/personalResult" element={<PersonalResultPage/>} />
       </Routes>
     </Router>
   );

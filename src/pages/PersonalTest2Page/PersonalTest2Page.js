@@ -53,8 +53,6 @@ const PersonalTest2Page = () => {
     const [colorOne, setColorOne] = useState([]);
     const [colorTwo, setColorTwo] = useState([]);
 
-    // let arr1 = [];
-    // let arr2 = [];
 
     useEffect(() => {
       const { season } = location.state; // season 받아옴
@@ -158,7 +156,7 @@ const PersonalTest2Page = () => {
                 <Camera/>
                 <div ref={currentColor} id='current-color'>
                   { isSelected ? <button id='next-btn' 
-                  onClick={onClickNextTest}>6개의 색상이 선택되었습니다 !
+                  onClick={onClickNextTest}>5개의 색상이 선택되었습니다 !
                   <br/>클릭 후 다음 페이지로 이동해 주세요</button> : null }
                 </div>
                 <Slider {...settings}>

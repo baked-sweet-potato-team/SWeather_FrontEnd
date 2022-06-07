@@ -1,0 +1,39 @@
+#personal-text {
+    width: 90%;
+    height: 200px;
+    background-color: #fff;
+    margin: 0 auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.personal-t{
+    text-align: center;
+    font-size: 1.7em;
+    font-weight: bolder;
+}
+
+#personal-result-t {
+    line-height: 200px;
+}
+
+#personal-explain {
+    width: 90%;
+    height: auto;
+    background-color: #fff;
+    margin: 0 auto 50px;
+    border-radius: 10px;
+    padding-top: 30px;
+}
+
+#personal-explain > button {
+    width: 80%;
+    height: 50px;
+    display: block;
+    margin: 20px auto;
+    border: 0px;
+    font-size: 1.2em;
+    color: #222F7D;
+    font-weight: bolder;
+    background-color: #DDE3F1;
+}

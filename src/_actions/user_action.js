@@ -7,6 +7,7 @@ import {
     WEATHER_MAIN,
     TPO_MAIN,
     PERSONAL_MAIN, 
+    DIAGNOSTIC_MAIN,
     MY_USER
 } from './types' 
 
@@ -93,6 +94,18 @@ export function personalRecommand() {
 
     return {
         type: PERSONAL_MAIN,
+        payload: request
+    }
+}
+
+// personal recommand result
+export function personalResult(dataTosubmit) {
+     
+    const request = axios.post('/api/personal/diagnostic', dataTosubmit)
+    .then(response => response.data)
+
+    return {
+        type: DIAGNOSTIC_MAIN,
         payload: request
     }
 }
