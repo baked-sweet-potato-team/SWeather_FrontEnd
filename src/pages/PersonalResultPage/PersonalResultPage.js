@@ -23,20 +23,25 @@ const PersonalResultPage = () => {
 
     useEffect(() => {
         const { detail } = location.state;
+        const { mypage } = location.state;
         console.log(detail);
+        console.log(mypage);
 
-        let result = "";
-
-        if (detail === "spring_light") result = "봄 웜 라이트";
-        else if (detail === "spring_bright") result = "봄 웜 브라이트";
-        else if (detail === "summer_mute") result = "여름 쿨 뮤트";
-        else if (detail === "summer_light") result = "여름 쿨 라이트";
-        else if (detail === "autumn_mute") result = "가을 웜 뮤트";
-        else if (detail === "autumn_deep") result = "가을 웜 딥";
-        else if (detail === "winter_bright") result = "겨울 쿨 브라이트";
-        else if (detail === "winter_deep") result = "겨울 쿨 딥";
-        setColor(result);
-
+        if ( !mypage ) {
+            let result = "";
+            if (detail === "spring_light") result = "봄 웜 라이트";
+            else if (detail === "spring_bright") result = "봄 웜 브라이트";
+            else if (detail === "summer_mute") result = "여름 쿨 뮤트";
+            else if (detail === "summer_light") result = "여름 쿨 라이트";
+            else if (detail === "autumn_mute") result = "가을 웜 뮤트";
+            else if (detail === "autumn_deep") result = "가을 웜 딥";
+            else if (detail === "winter_bright") result = "겨울 쿨 브라이트";
+            else if (detail === "winter_deep") result = "겨울 쿨 딥";
+            setColor(result);
+        } else {
+            setColor(detail);
+        } 
+        
     }, []);
 
     useEffect(() => {

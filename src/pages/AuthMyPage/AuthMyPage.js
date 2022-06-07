@@ -27,14 +27,15 @@ const AuthMyPage = () => {
         )
     },[])
 
-    let body = {
-        color: Color
-    }
-
     // 진단표 보러가기 통신
-    // const onClickPersonal = () => {
-        
-    // }
+    const onClickResult = () => {
+        navigate("/personalResult", {
+            state: {
+              detail: Color,
+              mypage: true
+            },
+          });
+    }
     
 
     //로그아웃 통신
@@ -81,7 +82,7 @@ const AuthMyPage = () => {
                     <div style={{margin: "10px"}}>퍼스널 컬러 진단표</div>
                     <div className='personal-info-box'>
                         <div className='personal-info-text'>{Color}</div>
-                        <button id='btn-personal'>진단 결과 보러가기</button>
+                        <button onClick={onClickResult} id='btn-personal'>진단 결과 보러가기</button>
                     </div>
                     <div className='btn-box'>
                         <button className='btn-my' onClick={onClickLogoutHandler}>로그아웃</button>

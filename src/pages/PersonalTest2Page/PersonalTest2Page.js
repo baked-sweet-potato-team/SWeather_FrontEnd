@@ -128,6 +128,7 @@ const PersonalTest2Page = () => {
        navigate("/personalResult", {
         state: {
           detail: detailType,
+          mypage: false
         },
       });
     }
