@@ -1,4 +1,4 @@
-div > span {
+#top-text {
     font-size: 0.8em;
     margin-left: 40px;
     color: #222F7D;
@@ -25,4 +25,19 @@ div > span {
     border-color: #A8A8A8;
     display: block;
     margin: 15px auto 0;
+}
+
+#tpo-container {
+    height: auto;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+#tpo-container > span {
+    color: #222F7D;
+    font-size: 1.2em;
+    font-weight: bolder;
+    display: block;
+    text-align: center;
+    margin: 20px;
 }

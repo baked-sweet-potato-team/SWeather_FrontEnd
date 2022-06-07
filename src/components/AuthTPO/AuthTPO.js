@@ -49,10 +49,13 @@ const AuthTPO = () => {
         <div>
             {
                 isSuccess ? 
-                <ImageBox imageRoute={imageRoute}/>
+                <div id='tpo-container'>
+                    <span>오늘의 recommanded cody</span>
+                    <ImageBox imageRoute={imageRoute}/>
+                </div>
                 :
                 <div>
-                    <span>오늘 누구와 무엇을 하나요 ? </span>
+                    <span id='top-text'>오늘 누구와 무엇을 하나요 ? </span>
                     <div id='tpo-select-box'>
                         <select className='t-select' onChange={onPeopleHandler}>
                             { people_arr.map(e => <option>{e}</option>) }

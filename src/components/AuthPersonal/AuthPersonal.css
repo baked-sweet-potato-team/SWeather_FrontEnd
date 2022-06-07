@@ -1,0 +1,20 @@
+#no-personal-box {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#no-personal-box > p {
+    color: #222F7D;
+    font-size: 1.0em;
+    padding: 3px;
+}
+
+#no-personal-box > button {
+    margin: 20px 0;
+    background-color: #222F7D;
+    color: #fff;
+    padding: 10px 30px;
+    border-radius: 10px;
+    border: 0px;
+}

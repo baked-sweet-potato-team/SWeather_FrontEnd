@@ -43,14 +43,15 @@ const Camera = () => {
       }
       
       const Styles = {
-        Video: { width: "100%", height: "auto", background: '#222F7D' },
+        Video: { width: "100%", height: "auto", background: '#222F7D', display: "block" },
         None: { display: 'none' },
+        Button: { background: '#636363', float: "right", color: "white", bolder: "0px", margin: "18px 18px 0 0", display: "block"}
       }
 
     return (
         <div>
             <video ref={videoRef} autoPlay style={Styles.Video} />
-            <Button id='camera-btn' color="warning" onClick={() => startOrStop()}>{playing ? '카메라 끄기' : '카메라 시작하기'} </Button>
+            <Button style={Styles.Button} color="warning" onClick={() => startOrStop()}>{playing ? '카메라 끄기' : '카메라 시작하기'} </Button>
         </div>
     );
 };

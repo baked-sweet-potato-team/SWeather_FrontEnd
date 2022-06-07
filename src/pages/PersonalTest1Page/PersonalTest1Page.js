@@ -11,6 +11,7 @@ const PersonalTest1Page = () => {
 
     // 계절타입 결과
     const [seasonType, setSeasontype] = useState('');
+    const [isSelected, setIsSelected] = useState(false);
 
     // 카루셀 세팅
     const settings = {
@@ -67,8 +68,17 @@ const PersonalTest1Page = () => {
         if(cnt === 6) {
           // 6개 선택 후 로직 처리
           setSeasontype(calcCount(season_cnt));
-          navigate("/personalTest2", {season: seasonType});
+          setIsSelected(true);
         }
+    }
+
+    const onClickNextTest = () => {
+      console.log(seasonType);
+       navigate("/personalTest2", {
+        state: {
+          season: seasonType,
+        },
+      });
     }
 
     
@@ -80,7 +90,9 @@ const PersonalTest1Page = () => {
             </header>
             <div id='personal-main-box'>
                 <Camera/>
-                <div ref={currentColor} id='current-color'></div>
+                <div ref={currentColor} id='current-color'>
+                  { isSelected ? <button id='next-btn' onClick={onClickNextTest}>6개의 색상이 선택되었습니다 !<br/>클릭 후 다음 페이지로 이동해 주세요 </button> : null }
+                </div>
                 <Slider {...settings}>
                   <article id='s1'>
                     {
