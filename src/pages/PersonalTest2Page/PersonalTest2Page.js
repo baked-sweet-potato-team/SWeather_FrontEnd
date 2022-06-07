@@ -1,4 +1,4 @@
-import React, {useRef, useState } from 'react';
+import React, {useEffect, useRef, useState } from 'react';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -8,9 +8,9 @@ import Camera from '../../components/Camera/Camera';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const PersonalTest2Page = () => {
-
+    
     const location = useLocation();
-    const { season } = location.state; // season 받아옴
+    // 다 선택됐는지
     const [isSelected, setIsSelected] = useState(false);
     
     // 세부타입 결과
@@ -49,6 +49,32 @@ const PersonalTest2Page = () => {
     const winter_bright = [
       '#b52b4a','#d45170','#ce4942','#9fa0b2','#ffffff'];
 
+    // 처음 렌더링 시 계절타입 결정
+    const [colorOne, setColorOne] = useState([]);
+    const [colorTwo, setColorTwo] = useState([]);
+
+    // let arr1 = [];
+    // let arr2 = [];
+
+    useEffect(() => {
+      const { season } = location.state; // season 받아옴
+      if (season === "spring") {
+        setColorOne([...spring_light, "spring_light"]);
+        setColorTwo([...spring_bright, "spring_bright"]);
+      } else if (season === "summer") {
+        setColorOne([...summer_mute, "summer_mute"]);
+        setColorTwo([...summer_light, "summer_light"]);
+      } else if (season === "autumn") {
+        setColorOne([...autumn_mute, "autumn_mute"]);
+        setColorTwo([...autumn_deep, "autumn_deep"]);
+      } else if (season === "winter") {
+        setColorOne([...winter_deep, "winter_deep"]);
+        setColorTwo([...winter_bright, "winter_bright"]);
+      }
+    }, [])
+
+    console.log(colorOne, colorTwo);
+
     // 세부 타입 처리
     const spring_detail = {
         spring_light: 0,
@@ -61,32 +87,41 @@ const PersonalTest2Page = () => {
         winter_bright: 0,
     }
 
-    // const calcCount = (obj) => {
-    //     const val = Object.values(obj);
-    //     let max = Math.max(...val);
-    //     return Object.keys(obj).find(key => obj[key] === max);
-    // }
+    const calcCount = (obj) => {
+      const val = Object.values(obj);
+      let max = Math.max(...val);
+      return Object.keys(obj).find(key => obj[key] === max);
+    }
 
-    // let cnt = 0;
-    // const onDetailHandler = (e) => {
+    let cnt = 0;
+    const onDetailHandler = (e) => {
+        cnt++;
+        currentColor.current.style = `background: ${e.currentTarget.style.backgroundColor}`;
+        if(e.currentTarget.value === "spring_light"){
+          spring_detail.spring_light++;
+        } else if (e.currentTarget.value === "spring_bright"){
+          spring_detail.spring_bright++;
+        } else if (e.currentTarget.value === "summer_mute"){
+          spring_detail.summer_mute++;
+        } else if (e.currentTarget.value === "summer_light"){
+          spring_detail.summer_light++;
+        }else if (e.currentTarget.value === "autumn_mute"){
+          spring_detail.autumn_mute++;
+        } else if (e.currentTarget.value === "autumn_deep"){
+          spring_detail.autumn_deep++;
+        } else if (e.currentTarget.value === "winter_deep"){
+          spring_detail.winter_deep++;
+        } else if (e.currentTarget.value === "winter_bright"){
+          spring_detail.winter_bright++;
+        }
 
-    //     cnt++;
-    //     currentColor.current.style = `background: ${e.currentTarget.style.backgroundColor}`;
-    //     if(e.currentTarget.value === "spring"){
-    //       season_cnt.spring++;
-    //     } else if (e.currentTarget.value === "summer"){
-    //       season_cnt.summer++;
-    //     } else if (e.currentTarget.value === "autumn"){
-    //       season_cnt.autumn++;
-    //     } else if (e.currentTarget.value === "winter"){
-    //       season_cnt.winter++;
-    //     }
-    //     if(cnt === 6) {
-    //       // 6개 선택 후 로직 처리
-    //       setDetailType(calcCount(season_cnt));
-          
-    //     }
-    // }
+        if(cnt === 5) {
+          // 5개 선택 후 로직 처리
+          setDetailType(calcCount(spring_detail));
+          setIsSelected(true);
+        }
+    }
+
 
     const onClickNextTest = () => {
       console.log(detailType);
@@ -95,6 +130,21 @@ const PersonalTest2Page = () => {
           detail: detailType,
         },
       });
+    }
+
+    const makeBtn = (arr) => {
+      const result = [];
+      for (let i=0; i<arr.length-1; i++ ) {
+        result.push(<button value={arr[6]} 
+        style={{
+          backgroundColor: `${arr[i]}`,
+          display: 'inline-block',
+          width: '20%',
+          height: '100%',
+          border: '0px'
+        }} onClick={onDetailHandler}></button>);
+      }
+      return result;
     }
 
     
@@ -107,32 +157,16 @@ const PersonalTest2Page = () => {
             <div id='personal-main-box'>
                 <Camera/>
                 <div ref={currentColor} id='current-color'>
-                  { isSelected ? <button id='next-btn' onClick={onClickNextTest}>6개의 색상이 선택되었습니다 !<br/>클릭 후 다음 페이지로 이동해 주세요</button> : null }
+                  { isSelected ? <button id='next-btn' 
+                  onClick={onClickNextTest}>6개의 색상이 선택되었습니다 !
+                  <br/>클릭 후 다음 페이지로 이동해 주세요</button> : null }
                 </div>
                 <Slider {...settings}>
                   <article id='s1'>
-                    {
-                        spring_light.map((ele) => <button value={"spring"}
-                        style={{
-                          backgroundColor: `${ele}`,
-                          display: 'inline-block',
-                          width: '20%',
-                          height: '100%',
-                          border: '0px'
-                        }}></button>)
-                    }
+                    { makeBtn(colorOne) }
                   </article>
                   <article id='s2'>
-                  {
-                        spring_bright.map((ele) => <button value={"summer"}
-                        style={{
-                          backgroundColor: `${ele}`,
-                          display: 'inline-block',
-                          width: '20%',
-                          height: '100%',
-                          border: '0px'
-                        }}></button>)
-                    }
+                    { makeBtn(colorTwo) }
                   </article>
                 </Slider>
             </div>
