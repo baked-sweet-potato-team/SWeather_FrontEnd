@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import { useDispatch } from 'react-redux';
 import { tpoRecommand } from '../../_actions/user_action'
-import ImageBox from '../ImageBox/ImageBox';
 import './AuthTPO.css';
 
 const AuthTPO = () => {
@@ -10,8 +9,8 @@ const AuthTPO = () => {
     const [people, setPeople] = useState("");
     const [isSuccess, setIsSuccess] = useState(false);
     const [imageRoute, setImageRoute] = useState("");
-    const people_arr = ['연인', '가족', '친구', '직장', '처음 보는 사람'];
-    const occasion_arr = ['데이트', '경사', '여행', '운동', '직장', '데일리'];
+    const people_arr = ['선택', '연인', '가족', '친구', '직장', '처음 보는 사람'];
+    const occasion_arr = ['선택', '데이트', '경사', '여행', '운동', '직장', '데일리'];
     
     const dispatch = useDispatch();
     
@@ -23,7 +22,7 @@ const AuthTPO = () => {
             people: people
         }
         
-        if(!occasion || !people ){
+        if( occasion === "선택" || people === "선택" || !occasion || !people ){
             alert("TPO를 선택해 주세요 !");
         }
         else {
@@ -36,6 +35,7 @@ const AuthTPO = () => {
             setIsSuccess(true);
         }
     }
+    
 
     const onPeopleHandler = (e) => {
         setPeople(e.currentTarget.value);
@@ -51,7 +51,9 @@ const AuthTPO = () => {
                 isSuccess ? 
                 <div id='tpo-container'>
                     <span>오늘의 recommanded cody</span>
-                    <ImageBox imageRoute={imageRoute}/>
+                    <div id='w-img-box'>
+                        <img id='codi-box' alt='이미지 없음' src={imageRoute}/>
+                    </div>
                 </div>
                 :
                 <div>

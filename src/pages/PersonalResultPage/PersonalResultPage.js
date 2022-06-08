@@ -8,12 +8,13 @@ import { personalResult } from '../../_actions/user_action';
 const PersonalResultPage = () => {
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const location = useLocation();
+
     const [ color , setColor] = useState();
     const [ explainImg, setExplainImg ] = useState();
 
-    const navigate = useNavigate();
-    const onClick = () => {
+    const onClickBack = () => { 
         navigate(-1);
     }
 
@@ -21,11 +22,10 @@ const PersonalResultPage = () => {
         navigate("/");
     } 
 
+    // 첫 렌더링 시
     useEffect(() => {
         const { detail } = location.state;
         const { mypage } = location.state;
-        console.log(detail);
-        console.log(mypage);
 
         if ( !mypage ) {
             let result = "";
@@ -38,12 +38,13 @@ const PersonalResultPage = () => {
             else if (detail === "winter_bright") result = "겨울 쿨 브라이트";
             else if (detail === "winter_deep") result = "겨울 쿨 딥";
             setColor(result);
-        } else {
+        } else { // mypage일 때 
             setColor(detail);
         } 
         
     }, []);
 
+    //  color 값이 바뀔 때 (setColor가 발동한 후)
     useEffect(() => {
         let body = {
             color: color,
@@ -60,7 +61,7 @@ const PersonalResultPage = () => {
     return (
         <div>
             <header id='personal-test-header'>
-                <div onClick={onClick}><img src={back} /></div>
+                <div onClick={onClickBack}><img src={back} /></div>
                 <span>step 3. 결과 진단표</span>
             </header>
             <section id='personal-text'>

@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import {weatherRecommand} from '../../_actions/user_action';
 import './AuthWeather.css';
-import ImageBox from '../../components/ImageBox/ImageBox';
 
 // 지역 선택 가능하게
 const AuthWeather = () => {
@@ -83,7 +82,9 @@ const AuthWeather = () => {
                     </div>
                     <span>오늘의 recommanded cody</span>
                     {/* 추천받는 이미지 자리 */}
-                    <ImageBox imageRoute={imageRoute}/>
+                    <div id='w-img-box'>
+                        <img id='codi-box' alt='이미지 없음' src={imageRoute}/>
+                    </div>
                 </div>
                 : <div>
                     <span id="t">지역을 입력해 주세요 ! </span>

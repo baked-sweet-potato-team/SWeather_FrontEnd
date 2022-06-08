@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { useDispatch } from 'react-redux';
 import { personalRecommand } from '../../_actions/user_action';
-import ImageBox from '../ImageBox/ImageBox';
 import './AuthPersonal.css';
 
 const AuthPersonal = () => {
@@ -31,7 +30,9 @@ const AuthPersonal = () => {
                 isExist ?
                 <div id='tpo-container'>
                     <span>오늘의 recommanded cody</span>
-                    <ImageBox imageRoute={imageRoute}/>
+                    <div id='w-img-box'>
+                        <img id='codi-box' alt='이미지 없음' src={imageRoute}/>
+                    </div>
                 </div>
                 :
                 <div id='no-personal-box'>
