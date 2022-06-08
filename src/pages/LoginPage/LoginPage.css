@@ -6,8 +6,7 @@ body {
 }
 
 .container {
-    height: 100vh;
-    height: calc(var(—vh, 1vh) * 60);
+    height: 100%;
 }
 
 /* 모든 내용이 담긴 박스 */
@@ -24,7 +23,8 @@ body {
 }
 
 .main {
-    height: 70%;
+    height: 540px;
+    margin-bottom: 30px;
 }
 
 .login-box {
@@ -51,7 +51,7 @@ body {
 
 .input-group {
     width: 100%;
-    height: 50%;
+    height: 60%;
 }
 
 .login-btn-box {
@@ -87,7 +87,7 @@ body {
 
 .inputs {
     width: 90%;
-    height: 35px;
+    height: 40px;
     border-radius: 30px;
     border-color: #222F7D;
 }

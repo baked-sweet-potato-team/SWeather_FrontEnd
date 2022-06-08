@@ -23,8 +23,8 @@ export default function (SpecificComponent, option, adminRoute = null) {
                     // 에서 로그인 한 사람만 들어갈 수 있는 페이지는 
                     if (option == true){
                         // 로그인 페이지로 이동
-                        alert('로그인을 하지 않았습니다.');
-                        navigate(-1);
+                        alert('아직 로그인을 하지 않았습니다.');
+                        navigate("/login");
                     }
                 } else {
                     // 로그인 한 상태

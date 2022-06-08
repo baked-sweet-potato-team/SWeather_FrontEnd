@@ -9,15 +9,6 @@ import {Link, useNavigate} from "react-router-dom";
 import {useDispatch} from 'react-redux'
 import {loginUser} from '../../_actions/user_action'
 
-let vh = window.innerHeight * 0.01;
-document.documentElement.style.setProperty("—vh", `${vh}px`);
-
-window.addEventListener("resize", () => {
-    console.log("resize");
-    let vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty("—vh", `${vh}px`);
-});
-
 function LoginPage() {
 
     // dispatch 사용
