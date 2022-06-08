@@ -157,11 +157,6 @@ const PersonalTest2Page = () => {
             </header>
             <div id='personal-main-box'>
                 <Camera/>
-                <div ref={currentColor} id='current-color'>
-                  { isSelected ? <button id='next-btn' 
-                  onClick={onClickNextTest}>5개의 색상이 선택되었습니다 !
-                  <br/>클릭 후 다음 페이지로 이동해 주세요</button> : null }
-                </div>
                 <Slider {...settings}>
                   <article id='s1'>
                     { makeBtn(colorOne) }
@@ -170,6 +165,11 @@ const PersonalTest2Page = () => {
                     { makeBtn(colorTwo) }
                   </article>
                 </Slider>
+                <div ref={currentColor} id='current-color'>
+                  { isSelected ? <button id='next-btn' 
+                  onClick={onClickNextTest}>5개의 색상이 선택되었습니다 !
+                  <br/>클릭 후 다음 페이지로 이동해 주세요</button> : null }
+                </div>
             </div>
         </div>
     );

@@ -51,7 +51,7 @@ const Camera = () => {
     return (
         <div>
             <video ref={videoRef} autoPlay style={Styles.Video} />
-            <Button style={Styles.Button} color="warning" onClick={() => startOrStop()}>{playing ? '카메라 끄기' : '카메라 시작하기'} </Button>
+            {/* <Button style={Styles.Button} color="warning" onClick={() => startOrStop()}>{playing ? '카메라 끄기' : '카메라 시작하기'} </Button> */}
         </div>
     );
 };
