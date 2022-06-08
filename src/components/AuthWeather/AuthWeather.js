@@ -54,17 +54,19 @@ const AuthWeather = () => {
                     console.log(temp, weather);
                 })
             
-            // 3. 날씨 -> 추천 코디 받기
-            let body = { weather: temp};
-            dispatch(weatherRecommand(body))
-            .then(res => res.payload.image)
-            .then(res => {
-                console.log(res);
-                setImageRoute(res);
-            })
-            
         }
     }
+
+    useEffect(() => {
+        // 3. 날씨 -> 추천 코디 받기
+        let body = { weather : temp};
+        dispatch(weatherRecommand(body))
+        .then(res => res.payload.image)
+        .then(res => {
+            console.log(res);
+            setImageRoute(res);
+        })
+    }, [temp]);
 
     const onAddressHandler = (e) => {
         setAddress(e.currentTarget.value)
