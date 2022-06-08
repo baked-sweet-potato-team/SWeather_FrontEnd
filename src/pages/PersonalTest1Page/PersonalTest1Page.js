@@ -110,7 +110,7 @@ const PersonalTest1Page = () => {
                           backgroundColor: `${ele}`,
                           display: 'inline-block',
                           width: '20%',
-                          height: '100%',
+                          height: '200px',
                           border: '0px'
                         }}></button>)
                     }
@@ -122,7 +122,7 @@ const PersonalTest1Page = () => {
                           backgroundColor: `${ele}`,
                           display: 'inline-block',
                           width: '20%',
-                          height: '100%',
+                          height: '200px',
                           border: '0px'
                         }}></button>)
                     }
@@ -134,7 +134,7 @@ const PersonalTest1Page = () => {
                           backgroundColor: `${ele}`,
                           display: 'inline-block',
                           width: '20%',
-                          height: '100%',
+                          height: '200px',
                           border: '0px'
                         }}></button>)
                     }
